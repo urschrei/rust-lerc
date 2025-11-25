@@ -14,7 +14,19 @@ version = "0.2.1"
 
 [dependencies]
 lerc-sys = "0.1"
+wasm-bindgen = { version = "0.2", optional = true }
+js-sys = { version = "0.3", optional = true }
+
+[patch.crates-io]
+lerc-sys = { git = "https://github.com/urschrei/lerc-sys", branch = "main" }
 
 [features]
 default = ["vendored"]
 vendored = []
+wasm = ["wasm-bindgen", "js-sys"]
+
+[lib]
+crate-type = ["rlib"]
+
+# Uncomment for WASM cdylib output (used by wasm-pack):
+# crate-type = ["cdylib", "rlib"]

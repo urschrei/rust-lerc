@@ -41,6 +41,9 @@ mod encode;
 mod error;
 mod info;
 
+#[cfg(feature = "wasm")]
+pub mod wasm;
+
 pub use datatype::LercDataType;
 pub use decode::decode;
 pub use decode::decode_auto;
